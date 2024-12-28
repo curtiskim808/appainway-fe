@@ -1,8 +1,8 @@
 import React from "react";
-import { GaugeType, GAUGE_CONFIGS } from "../../types";
+import { GaugeProps, GAUGE_CONFIGS } from "../../types";
 import useGauges from "../../hooks/useGauges";
 
-function Gauge(type: GaugeType) {
+function Gauge({ type }: GaugeProps) {
   const { gauges } = useGauges();
   const value = gauges[type];
 

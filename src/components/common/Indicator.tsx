@@ -1,17 +1,17 @@
 import React from "react";
-import { IndicatorType } from "../../types";
+import { IndicatorProps } from "../../types";
 import useIndicators from "../../hooks/useIndicators";
 import CheckEngineIcon from "../icons/CheckEngineIcon";
 import ParkingBrakeIcon from "../icons/ParkingBrakeIcon";
 import MotorStatusIcon from "../icons/MotorStatusIcon";
 import BatteryLowIcon from "../icons/BatteryLowIcon";
 
-function Indicator(type: IndicatorType) {
+function Indicator({ type, statusNeeded }: IndicatorProps) {
   const { indicators } = useIndicators();
   const status = indicators[type];
 
   const getIndicatorColor = (status: boolean) => {
-    return status ? "#FF0000" : "#808080";
+    return statusNeeded && status ? "#FF0000" : "#808080";
   };
 
   switch (type.toLowerCase()) {
