@@ -6,6 +6,7 @@ export interface GearIconProps {
   letter: "N" | "D" | "P" | "R";
 }
 
+// Indicators State management
 export interface Indicators {
   "parking-brake": boolean;
   "battery-low": boolean;
@@ -13,6 +14,17 @@ export interface Indicators {
   "motor-status": boolean;
 }
 
+export type IndicatorType =
+  | "battery-low"
+  | "motor-status"
+  | "check-engine"
+  | "parking-brake";
+
+export interface IndicatorProps {
+  type: IndicatorType;
+  statusNeeded?: boolean;
+}
+// Gauge State management
 export interface Gauge {
   "power-input": number;
   "motor-rpm": number;
@@ -50,8 +62,12 @@ export const GAUGE_CONFIGS: Record<GaugeType, GaugeConfig> = {
   },
 };
 
-export type IndicatorType =
-  | "battery-low"
-  | "motor-status"
-  | "check-engine"
-  | "parking-brake";
+export interface GaugeProps {
+  type: GaugeType;
+}
+
+// Gearr Ratio State management
+export interface GearRatio {
+  gearRep: string;
+  ratio: number;
+}
