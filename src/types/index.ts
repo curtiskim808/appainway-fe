@@ -22,7 +22,9 @@ export type IndicatorType =
 
 export interface IndicatorProps {
   type: IndicatorType;
-  statusNeeded?: boolean;
+  isIndicator?: boolean;
+  isCharging?: boolean;
+  inUsed?: boolean;
 }
 // Gauge State management
 export interface Gauge {
@@ -70,4 +72,9 @@ export interface GaugeProps {
 export interface GearRatio {
   gearRep: string;
   ratio: number;
+}
+
+export interface MotorSpeed {
+  motorSpeed: number;
+  inUsed: boolean;
 }

@@ -5,13 +5,22 @@ import CheckEngineIcon from "../icons/CheckEngineIcon";
 import ParkingBrakeIcon from "../icons/ParkingBrakeIcon";
 import MotorStatusIcon from "../icons/MotorStatusIcon";
 import BatteryLowIcon from "../icons/BatteryLowIcon";
+import { colorStatus } from "../../config/constants";
 
-function Indicator({ type, statusNeeded }: IndicatorProps) {
+function Indicator({ type, isIndicator, isCharging, inUsed }: IndicatorProps) {
   const { indicators } = useIndicators();
   const status = indicators[type];
 
   const getIndicatorColor = (status: boolean) => {
-    return statusNeeded && status ? "#FF0000" : "#808080";
+    if (isIndicator) {
+      return isIndicator && status ? colorStatus.error : colorStatus.default;
+    } else if (isCharging) {
+      return colorStatus.charging;
+    } else if (inUsed) {
+      return colorStatus.inUsed;
+    } else {
+      return colorStatus.default;
+    }
   };
 
   switch (type.toLowerCase()) {

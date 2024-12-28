@@ -1,7 +1,10 @@
 import React from "react";
 import { IconBaseProps } from "../../types";
+import { colorStatus } from "../../config/constants";
 
-function BatteryTemperatureIcon({ color = "#808080" }: IconBaseProps) {
+function BatteryTemperatureIcon({
+  color = colorStatus.default,
+}: IconBaseProps) {
   return (
     <div className="flex items-center justify-center relative pt-1">
       <svg
