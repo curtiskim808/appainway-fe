@@ -32,6 +32,28 @@ module.exports = {
             "background-position": "right center",
           },
         },
+        pulseColor: {
+          "0%, 100%": {
+            transform: "scale(1)",
+            backgroundColor: "rgba(34, 197, 94, 1)", // Green
+          },
+          "50%": {
+            transform: "scale(1.05)",
+            backgroundColor: "rgba(52, 211, 153, 1)", // Lighter Green
+          },
+        },
+        pulseAnimation: {
+          "0%, 100%": {
+            transform: "scale(1)",
+          },
+          "50%": {
+            transform: "scale(1.05)",
+          },
+        },
+      },
+      animation: {
+        pulseColor: "pulseColor 2s infinite",
+        pulseAnimation: "pulseAnimation 2s infinite",
       },
     },
   },
