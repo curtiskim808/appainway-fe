@@ -4,10 +4,11 @@ import { Indicators, Gauge, MotorSpeed } from "../types";
 export const indicatorsAtom = atom<Indicators>({
   key: "indicatorsState",
   default: {
+    "battery-charging": false,
+    "engine-status": false,
     "parking-brake": false,
-    "battery-low": false,
-    "check-engine": false,
     "motor-status": false,
+    "battery-low": false,
   },
 });
 
