@@ -14,12 +14,12 @@ function GearIcon({ letter }: { letter: string }) {
           }}
         />
         <span
-          className="text-dashboard-icon-grey text-2xl font-bold"
+          className="text-dashboard-icon-grey text-3xl font-bold"
           style={{
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(-45%, -48%)",
           }}
         >
           {letter}

@@ -8,7 +8,7 @@ function useMetrics() {
   const setMetrics = useSetRecoilState(metricsState);
   const getMetricValue = useRecoilValue(metricValueSelector);
 
-  const updateMetric = async (
+  const saveMetricToDb = async (
     dashboardUuid: string,
     id: number,
     type: MetricType,
@@ -17,20 +17,27 @@ function useMetrics() {
   ) => {
     try {
       putMetric(dashboardUuid, id, type, value, unit);
-
-      setMetrics((prev) =>
-        prev.map((metric) =>
-          metric.type === type && metric.id === id
-            ? { ...metric, value, unit, updatedAt: new Date().toISOString() }
-            : metric
-        )
-      );
     } catch (error) {
-      console.error("Error updating indicator:", error);
+      console.error("Error saving metric:", error);
       throw error;
     }
   };
-  return { getMetricValue, updateMetric };
+  const setMetricsState = (
+    dashboardUuid: string,
+    id: number,
+    type: MetricType,
+    value: number,
+    unit: string
+  ) => {
+    setMetrics((prev) =>
+      prev.map((metric) =>
+        metric.type === type && metric.id === id
+          ? { ...metric, value, unit, updatedAt: new Date().toISOString() }
+          : metric
+      )
+    );
+  };
+  return { getMetricValue, saveMetricToDb, setMetricsState };
 }
 
 export default useMetrics;

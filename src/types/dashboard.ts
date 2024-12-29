@@ -21,7 +21,7 @@ export enum BatteryInfoType {
 
 export interface Indicator {
   id: number;
-  dashboardUid: string;
+  dashboardUuid: string;
   type: IndicatorType;
   status: boolean;
   createdAt: string;
@@ -30,7 +30,7 @@ export interface Indicator {
 
 export interface Metric {
   id: number;
-  dashboardId: string;
+  dashboardUuid: string;
   type: MetricType;
   value: number;
   unit: string;
@@ -40,7 +40,7 @@ export interface Metric {
 
 export interface BatteryInfo {
   id: number;
-  dashboardId: string;
+  dashboardUuid: string;
   value: number;
   unit: string;
   type: BatteryInfoType;

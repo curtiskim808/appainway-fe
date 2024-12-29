@@ -21,7 +21,7 @@ function BatteryTemperature() {
     <>
       <BatteryTemperatureIcon color={color} />
       <div className="text-dashboard-icon-grey text-sm font-bold text-center">
-        <p>{batteryTemperatureValue}</p>
+        <p>{Number(batteryTemperatureValue).toFixed(2)}</p>
         <p>°C</p>
       </div>
     </>

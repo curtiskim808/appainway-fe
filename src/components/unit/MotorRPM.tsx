@@ -9,8 +9,7 @@ function MotorRPM() {
   const motorRpmValue = getMetricValue(MetricType.MOTOR_RPM);
   const getMotorSpeedValue = getMetricValue(MetricType.MOTOR_SPEED);
   const inUsed = getMotorSpeedValue > 0;
-  console.log("MotorRPM -> motorRpmValue", motorRpmValue);
-  console.log("inUsed", inUsed);
+
   return (
     <>
       <div className="max-h-fit place-items-center">
@@ -21,7 +20,7 @@ function MotorRPM() {
         />
       </div>
       <div className="text-dashboard-icon-grey text-sm font-bold text-center">
-        <p>{motorRpmValue}</p>
+        <p>{Number(motorRpmValue).toFixed(0)}</p>
         <p>RPM</p>
       </div>
     </>

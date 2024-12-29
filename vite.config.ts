@@ -5,10 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env.DASHBOARD_APP_API_URL": JSON.stringify(
-      process.env.DASHBOARD_APP_API_URL
-    ),
+    global: "window",
   },
+
   server: {
     proxy: {
       "/api": {
