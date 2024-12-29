@@ -1,18 +1,28 @@
 import React from "react";
 import Indicator from "../common/Indicator";
-import useMotorSpeedState from "../../hooks/useMotorSpeedState";
+import { metricValueSelector } from "../../recoil/selectors";
+import { IndicatorType, MetricType } from "../../types/dashboard";
+import { useRecoilValue } from "recoil";
 
 function MotorRPM() {
-  const { motorSpeedState } = useMotorSpeedState();
-  const { inUsed } = motorSpeedState;
+  const getMetricValue = useRecoilValue(metricValueSelector);
+  const motorRpmValue = getMetricValue(MetricType.MOTOR_RPM);
+  const getMotorSpeedValue = getMetricValue(MetricType.MOTOR_SPEED);
+  const inUsed = getMotorSpeedValue > 0;
+  console.log("MotorRPM -> motorRpmValue", motorRpmValue);
+  console.log("inUsed", inUsed);
   return (
     <>
       <div className="max-h-fit place-items-center">
-        <Indicator type="motor-status" isIndicator={false} inUsed={inUsed} />
+        <Indicator
+          type={IndicatorType.MOTOR_STATUS}
+          isIndicator={false}
+          inUsed={inUsed}
+        />
       </div>
       <div className="text-dashboard-icon-grey text-sm font-bold text-center">
-        <p>22</p>
-        <p>%</p>
+        <p>{motorRpmValue}</p>
+        <p>RPM</p>
       </div>
     </>
   );

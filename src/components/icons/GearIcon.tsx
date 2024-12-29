@@ -1,7 +1,6 @@
 import React from "react";
-import { GearIconProps } from "../../types";
 
-function GearIcon({ letter }: GearIconProps) {
+function GearIcon({ letter }: { letter: string }) {
   return (
     <>
       <div className="flex items-center justify-center relative pt-1">

@@ -1,4 +1,6 @@
 import React, { Suspense, lazy } from "react";
+import { useParams } from "react-router-dom";
+import { useDashboard } from "../../hooks/useDashboard";
 
 const IndicatorsContainer = lazy(() => import("./IndicatorsContainer"));
 const GaugesContainer = lazy(() => import("./GaugesContainer"));
@@ -6,6 +8,9 @@ const DataRow = lazy(() => import("./DataRow"));
 const ButtonContainer = lazy(() => import("./ButtonContainer"));
 
 function Dashboard() {
+  const dashboardUuid = useParams().dashboardUuid as string;
+  const [loading, error] = useDashboard(dashboardUuid);
+
   return (
     <>
       <div className="bg-dashboard-black p-6 min-h-screen">
@@ -25,6 +30,7 @@ function Dashboard() {
           <ButtonContainer />
         </Suspense>
       </div>
+      {loading && <div>Loading...</div>}
     </>
   );
 }

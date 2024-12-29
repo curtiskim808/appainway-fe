@@ -1,6 +1,5 @@
 import React from "react";
 import { IconBaseProps } from "../../types";
-import { div } from "framer-motion/client";
 
 function BatteryLowIcon({ color }: IconBaseProps) {
   return (

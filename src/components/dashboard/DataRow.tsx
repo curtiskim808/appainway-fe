@@ -1,20 +1,16 @@
 import React from "react";
-import GearIcon from "../icons/GearIcon";
-import Indicator from "../common/Indicator";
 import MotorControllerSlider from "../common/MotorControllerSlider";
 import BatteryPercentage from "../unit/BatteryPercentage";
 import BatteryTemperature from "../unit/BatteryTemperature";
 import MotorRPM from "../unit/MotorRPM";
+import GearRatio from "../unit/GearRatio";
 
 function DataRow() {
   return (
     <div className="grid grid-cols-7 gap-0.4 border-gray-600 border-t-3 border-l-3 border-r-3">
       <div className="bg-dashboard-black border border-gray-600 rounded-lg grid-cols-1 place-content-center">
         {/* Replace Gear Ratio */}
-        <GearIcon letter="N" />
-        <div className="text-dashboard-icon-grey text-sm font-bold text-center pt-5">
-          N/N
-        </div>
+        <GearRatio />
       </div>
       <div className="bg-dashboard-black border border-gray-600 rounded-lg grid-cols-1 place-content-center">
         <BatteryPercentage />

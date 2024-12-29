@@ -1,11 +1,11 @@
 import React from "react";
 import { GaugeProps, GAUGE_CONFIGS } from "../../types";
-import useGauges from "../../hooks/useGauges";
+import useMetrics from "../../hooks/useMetrics";
 
 function Gauge({ type }: GaugeProps) {
-  const { gauges } = useGauges();
-  const value = gauges[type];
+  const { getMetricValue } = useMetrics();
 
+  const value = getMetricValue(type);
   const config = {
     ...GAUGE_CONFIGS[type],
   };

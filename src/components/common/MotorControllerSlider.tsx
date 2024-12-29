@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Slider } from "@nextui-org/react";
-import useBatteryChargingState from "../../hooks/useBatteryChargingState";
-import useMotorSpeedState from "../../hooks/useMotorSpeedState";
+import useMetrics from "../../hooks/useMetrics";
+import { IndicatorType, MetricType } from "../../types/dashboard";
+import { useRecoilValue } from "recoil";
+import {
+  indicatorStatusSelector,
+  metricObjSelector,
+} from "../../recoil/selectors";
+import { dashboardState } from "../../recoil/atoms";
 
 function MotorControllerSlider() {
   const [value, setValue] = useState(0);
-  const { isCharging } = useBatteryChargingState();
-  const { updateMotorSpeedStateState } = useMotorSpeedState();
+  const getIndicatorStatus = useRecoilValue(indicatorStatusSelector);
+  const isCharging = getIndicatorStatus(IndicatorType.BATTERY_CHARGING);
+  const { updateMetric } = useMetrics();
+  const dashboard = useRecoilValue(dashboardState);
+  const dashboardUuid = dashboard?.uuid || "";
+  const getMetricObj = useRecoilValue(metricObjSelector);
+  const motorSpeedMetric = getMetricObj(MetricType.MOTOR_SPEED);
 
   useEffect(() => {
     if (isCharging) {
@@ -16,11 +27,13 @@ function MotorControllerSlider() {
 
   useEffect(() => {
     setValue(value);
-    if (value > 0) {
-      updateMotorSpeedStateState({ motorSpeed: value, inUsed: true });
-    } else {
-      updateMotorSpeedStateState({ motorSpeed: value, inUsed: false });
-    }
+    updateMetric(
+      dashboardUuid,
+      motorSpeedMetric.id,
+      MetricType.MOTOR_SPEED,
+      value,
+      motorSpeedMetric.unit
+    );
   }, [value]);
 
   return (

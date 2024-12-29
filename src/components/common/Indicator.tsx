@@ -1,15 +1,18 @@
 import React from "react";
 import { IndicatorProps } from "../../types";
-import useIndicators from "../../hooks/useIndicators";
 import CheckEngineIcon from "../icons/CheckEngineIcon";
 import ParkingBrakeIcon from "../icons/ParkingBrakeIcon";
 import MotorStatusIcon from "../icons/MotorStatusIcon";
 import BatteryLowIcon from "../icons/BatteryLowIcon";
 import { colorStatus } from "../../config/constants";
+import { useRecoilValue } from "recoil";
+import { indicatorObjSelector } from "../../recoil/selectors";
+import { IndicatorType } from "../../types/dashboard";
 
 function Indicator({ type, isIndicator, isCharging, inUsed }: IndicatorProps) {
-  const { indicators } = useIndicators();
-  const status = indicators[type];
+  const getIndicatorObj = useRecoilValue(indicatorObjSelector);
+  const indicatorObj = getIndicatorObj(type);
+  const status = indicatorObj.status;
 
   const getIndicatorColor = (status: boolean) => {
     if (isIndicator) {
@@ -23,14 +26,14 @@ function Indicator({ type, isIndicator, isCharging, inUsed }: IndicatorProps) {
     }
   };
 
-  switch (type.toLowerCase()) {
-    case "check-engine":
+  switch (type) {
+    case IndicatorType.ENGINE_STATUS:
       return <CheckEngineIcon color={getIndicatorColor(status)} />;
-    case "parking-brake":
+    case IndicatorType.PARKING_BRAKE:
       return <ParkingBrakeIcon color={getIndicatorColor(status)} />;
-    case "motor-status":
+    case IndicatorType.MOTOR_STATUS:
       return <MotorStatusIcon color={getIndicatorColor(status)} />;
-    case "battery-low":
+    case IndicatorType.BATTERY_LOW:
       return <BatteryLowIcon color={getIndicatorColor(status)} />;
     default:
       return null;
