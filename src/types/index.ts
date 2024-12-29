@@ -10,15 +10,17 @@ export interface GearIconProps {
 export interface Indicators {
   "parking-brake": boolean;
   "battery-low": boolean;
-  "check-engine": boolean;
+  "engine-status": boolean;
   "motor-status": boolean;
+  "battery-charging": boolean;
 }
 
 export type IndicatorType =
   | "battery-low"
   | "motor-status"
-  | "check-engine"
-  | "parking-brake";
+  | "engine-status"
+  | "parking-brake"
+  | "battery-charging";
 
 export interface IndicatorProps {
   type: IndicatorType;
