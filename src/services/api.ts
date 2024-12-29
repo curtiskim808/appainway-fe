@@ -1,9 +1,7 @@
 const API_URL = import.meta.env.VITE_DASHBOARD_APP_API_URL;
 
 export const fetchDashboardInfo = async () => {
-  console.log("API_URL", API_URL);
   const response = await fetch(`${API_URL}`);
-  console.log("response", response);
   const data = await response.json();
   return data;
 };

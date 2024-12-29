@@ -32,7 +32,7 @@ export const batteryInfoValueSelector = selector({
 
 const DEFAULT_INDICATOR: Indicator = {
   id: 0,
-  dashboardUid: "",
+  dashboardUuid: "",
   type: IndicatorType.MOTOR_STATUS,
   status: false,
   createdAt: "",
@@ -41,7 +41,7 @@ const DEFAULT_INDICATOR: Indicator = {
 
 const DEFAULT_METRIC: Metric = {
   id: 0,
-  dashboardId: "",
+  dashboardUuid: "",
   type: MetricType.MOTOR_SPEED,
   value: 0,
   unit: "",
@@ -51,7 +51,7 @@ const DEFAULT_METRIC: Metric = {
 
 const DEFAULT_BATTERY_INFO: BatteryInfo = {
   id: 0,
-  dashboardId: "",
+  dashboardUuid: "",
   type: BatteryInfoType.TEMPERATURE,
   value: 0,
   unit: "",

@@ -76,7 +76,7 @@ function Gauge({ type }: GaugeProps) {
 
           {/* Value Display */}
           <div className="absolute left-1/2 top-3/4 -translate-x-1/2 text-white text-xl text-center">
-            {displayValue}
+            {Number(displayValue).toFixed(0)}
             <div className="text-sm text-gray-400 text-center">{unit}</div>
           </div>
         </div>

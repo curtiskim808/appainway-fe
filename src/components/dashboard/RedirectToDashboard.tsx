@@ -10,7 +10,6 @@ function RedirectToDashboard() {
       try {
         const data = await fetchDashboardInfo();
         const dashboardUuid = data.uuid;
-        console.log("data: ", data);
 
         navigate(`dashboards/${dashboardUuid}`);
       } catch (error) {

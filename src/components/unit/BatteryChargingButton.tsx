@@ -11,12 +11,18 @@ function BatteryChargingButton() {
   );
 
   const [isCharging, setisCharging] = useState(batteryChargingIndicator.status);
-  const { updateIndicator } = useIndicators();
+  const { saveIndicatorToDb, setIndicatorsState } = useIndicators();
 
   const handleClick = () => {
     setisCharging(!isCharging);
-    updateIndicator(
-      batteryChargingIndicator.dashboardUid,
+    saveIndicatorToDb(
+      batteryChargingIndicator.dashboardUuid,
+      batteryChargingIndicator.id,
+      IndicatorType.BATTERY_CHARGING,
+      !isCharging
+    );
+    setIndicatorsState(
+      batteryChargingIndicator.dashboardUuid,
       batteryChargingIndicator.id,
       IndicatorType.BATTERY_CHARGING,
       !isCharging

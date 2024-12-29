@@ -13,7 +13,7 @@ function MotorControllerSlider() {
   const [value, setValue] = useState(0);
   const getIndicatorStatus = useRecoilValue(indicatorStatusSelector);
   const isCharging = getIndicatorStatus(IndicatorType.BATTERY_CHARGING);
-  const { updateMetric } = useMetrics();
+  const { saveMetricToDb, setMetricsState } = useMetrics();
   const dashboard = useRecoilValue(dashboardState);
   const dashboardUuid = dashboard?.uuid || "";
   const getMetricObj = useRecoilValue(metricObjSelector);
@@ -27,7 +27,14 @@ function MotorControllerSlider() {
 
   useEffect(() => {
     setValue(value);
-    updateMetric(
+    saveMetricToDb(
+      dashboardUuid,
+      motorSpeedMetric.id,
+      MetricType.MOTOR_SPEED,
+      value,
+      motorSpeedMetric.unit
+    );
+    setMetricsState(
       dashboardUuid,
       motorSpeedMetric.id,
       MetricType.MOTOR_SPEED,
