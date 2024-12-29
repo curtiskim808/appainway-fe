@@ -1,9 +1,11 @@
+import { IndicatorType, MetricType } from "./dashboard";
+
 export interface IconBaseProps {
-  color: string;
+  color?: string;
 }
 
 export interface GearIconProps {
-  letter: "N" | "D" | "P" | "R";
+  letter: "N" | "D" | "P" | "R" | "1" | "2" | "3" | "4" | "5";
 }
 
 // Indicators State management
@@ -15,13 +17,6 @@ export interface Indicators {
   "battery-charging": boolean;
 }
 
-export type IndicatorType =
-  | "battery-low"
-  | "motor-status"
-  | "engine-status"
-  | "parking-brake"
-  | "battery-charging";
-
 export interface IndicatorProps {
   type: IndicatorType;
   isIndicator?: boolean;
@@ -30,11 +25,11 @@ export interface IndicatorProps {
 }
 // Gauge State management
 export interface Gauge {
-  "power-input": number;
-  "motor-rpm": number;
+  POWER_INPUT: number;
+  MOTOR_RPM: number;
 }
 
-export type GaugeType = "motor-rpm" | "power-input";
+export type GaugeType = MetricType.MOTOR_RPM | MetricType.POWER_INPUT;
 
 interface GaugeConfig {
   min: number;
@@ -47,7 +42,7 @@ interface GaugeConfig {
 }
 
 export const GAUGE_CONFIGS: Record<GaugeType, GaugeConfig> = {
-  "power-input": {
+  POWER_INPUT: {
     min: -1000,
     max: 1000,
     unit: "kW",
@@ -56,7 +51,7 @@ export const GAUGE_CONFIGS: Record<GaugeType, GaugeConfig> = {
     startAngle: -240,
     endAngle: 60,
   },
-  "motor-rpm": {
+  MOTOR_RPM: {
     min: 0,
     max: 800,
     unit: "RPM",
@@ -80,3 +75,13 @@ export interface MotorSpeed {
   motorSpeed: number;
   inUsed: boolean;
 }
+
+export const gearMap: { [key: string]: string } = {
+  "-1": "R",
+  "0": "N",
+  "1": "1",
+  "2": "2",
+  "3": "3",
+  "4": "4",
+  "5": "5",
+};

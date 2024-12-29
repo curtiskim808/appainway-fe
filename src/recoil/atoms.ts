@@ -1,34 +1,22 @@
 import { atom } from "recoil";
-import { Indicators, Gauge, MotorSpeed } from "../types";
+import { Dashboard, Indicator, Metric, BatteryInfo } from "../types/dashboard";
 
-export const indicatorsAtom = atom<Indicators>({
+export const dashboardState = atom<Dashboard | null>({
+  key: "dashboardState",
+  default: null,
+});
+
+export const indicatorsState = atom<Indicator[]>({
   key: "indicatorsState",
-  default: {
-    "battery-charging": false,
-    "engine-status": false,
-    "parking-brake": false,
-    "motor-status": false,
-    "battery-low": false,
-  },
+  default: [],
 });
 
-export const gaugesAtom = atom<Gauge>({
-  key: "gaugesState",
-  default: {
-    "power-input": 0,
-    "motor-rpm": 0,
-  },
+export const metricsState = atom<Metric[]>({
+  key: "metersState",
+  default: [],
 });
 
-export const batteryChargingStateAtom = atom<boolean>({
-  key: "batteryChargingState",
-  default: false,
-});
-
-export const motorSpeedStateAtom = atom<MotorSpeed>({
-  key: "motorSpeedState",
-  default: {
-    motorSpeed: 0,
-    inUsed: false,
-  },
+export const batteryInfoState = atom<BatteryInfo[]>({
+  key: "batteryInfoState",
+  default: [],
 });
