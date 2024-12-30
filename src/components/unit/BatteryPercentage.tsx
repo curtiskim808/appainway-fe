@@ -1,10 +1,14 @@
 import React from "react";
 import {
-  batteryInfoObjSelector,
   batteryInfoValueSelector,
   indicatorObjSelector,
+  metricValueSelector,
 } from "../../recoil/selectors";
-import { BatteryInfoType, IndicatorType } from "../../types/dashboard";
+import {
+  BatteryInfoType,
+  IndicatorType,
+  MetricType,
+} from "../../types/dashboard";
 import { useRecoilValue } from "recoil";
 import Indicator from "../common/Indicator";
 import { indicatorStatusSelector } from "../../recoil/selectors";
@@ -18,9 +22,11 @@ function BatteryPercentage() {
   const batteryPercentageValue = getBatteryInfo(
     BatteryInfoType.REMAINING_CAPACITY
   );
-
   const getindicatorObj = useRecoilValue(indicatorObjSelector);
   const indicatorObj = getindicatorObj(IndicatorType.BATTERY_LOW);
+  const getMetricValue = useRecoilValue(metricValueSelector);
+  const moterSpeed = getMetricValue(MetricType.MOTOR_SPEED);
+  const inUsed = moterSpeed > 0;
 
   const { saveIndicatorToDb, setIndicatorsState } = useIndicators();
   if (batteryPercentageValue <= LOW_BATTERY_THRESHOLD && !indicatorObj.status) {
@@ -61,10 +67,18 @@ function BatteryPercentage() {
           type={IndicatorType.BATTERY_LOW}
           isIndicator={false}
           isCharging={isCharging}
+          inUsed={inUsed}
         />
       </div>
       <div className={`text-dashboard-icon-grey text-sm font-bold text-center`}>
-        <p>{Number(batteryPercentageValue).toFixed(2)}</p>
+        <p
+          className={`${
+            isCharging ? "text-dashboard-charging animate-pulse" : ""
+          }
+          ${moterSpeed > 0 ? "text-dashboard-inuse animate-pulse" : ""}`}
+        >
+          {Number(batteryPercentageValue).toFixed(2)}
+        </p>
         <p>%</p>
       </div>
     </>

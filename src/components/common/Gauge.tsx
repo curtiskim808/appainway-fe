@@ -1,6 +1,7 @@
 import React from "react";
 import { GaugeProps, GAUGE_CONFIGS } from "../../types";
 import useMetrics from "../../hooks/useMetrics";
+import CountUp from "react-countup";
 
 function Gauge({ type }: GaugeProps) {
   const { getMetricValue } = useMetrics();
@@ -67,7 +68,7 @@ function Gauge({ type }: GaugeProps) {
               bottom: "50%",
               transform: `translateX(-50%) rotate(${rotation + 90}deg)`,
               transformOrigin: "bottom center",
-              transition: "transform 0.3s ease-out",
+              transition: "transform 1s ease-out",
             }}
           />
 
@@ -76,7 +77,7 @@ function Gauge({ type }: GaugeProps) {
 
           {/* Value Display */}
           <div className="absolute left-1/2 top-3/4 -translate-x-1/2 text-white text-xl text-center">
-            {Number(displayValue).toFixed(0)}
+            <CountUp duration={1} end={Number(displayValue)} />
             <div className="text-sm text-gray-400 text-center">{unit}</div>
           </div>
         </div>

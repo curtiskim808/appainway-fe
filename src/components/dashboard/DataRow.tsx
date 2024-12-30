@@ -25,7 +25,7 @@ function DataRow() {
       </div>
       <div className="bg-dashboard-black border border-gray-600 p-4 rounded-lg grid-cols-1 col-span-3">
         <div className="grid grid-cols-1 place-content-center place-items-center">
-          <span className="text-white text-l font-bold pb-10">
+          <span className="text-white text-l font-bold">
             MOTOR SPEED SETTING
           </span>
           <MotorControllerSlider />
