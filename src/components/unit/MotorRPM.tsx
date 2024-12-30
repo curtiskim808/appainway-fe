@@ -20,7 +20,9 @@ function MotorRPM() {
         />
       </div>
       <div className="text-dashboard-icon-grey text-sm font-bold text-center">
-        <p>{Number(motorRpmValue).toFixed(0)}</p>
+        <p className={`${inUsed ? "text-dashboard-inuse" : ""}`}>
+          {Number(motorRpmValue).toFixed(0)}
+        </p>
         <p>RPM</p>
       </div>
     </>

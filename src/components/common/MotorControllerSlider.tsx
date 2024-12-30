@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Slider } from "@nextui-org/react";
 import useMetrics from "../../hooks/useMetrics";
-import { IndicatorType, MetricType } from "../../types/dashboard";
+import {
+  BatteryInfoType,
+  IndicatorType,
+  MetricType,
+} from "../../types/dashboard";
 import { useRecoilValue } from "recoil";
 import {
+  batteryInfoValueSelector,
   indicatorStatusSelector,
   metricObjSelector,
 } from "../../recoil/selectors";
@@ -18,15 +23,21 @@ function MotorControllerSlider() {
   const dashboardUuid = dashboard?.uuid || "";
   const getMetricObj = useRecoilValue(metricObjSelector);
   const motorSpeedMetric = getMetricObj(MetricType.MOTOR_SPEED);
+  const getBatteryInfoValue = useRecoilValue(batteryInfoValueSelector);
+  const batteryRemainingCapacity = getBatteryInfoValue(
+    BatteryInfoType.REMAINING_CAPACITY
+  );
 
   useEffect(() => {
     if (isCharging) {
       setValue(0);
     }
-  }, [isCharging]);
+    if (batteryRemainingCapacity === 0) {
+      setValue(0);
+    }
+  }, [isCharging, batteryRemainingCapacity]);
 
   useEffect(() => {
-    setValue(value);
     saveMetricToDb(
       dashboardUuid,
       motorSpeedMetric.id,
@@ -45,10 +56,20 @@ function MotorControllerSlider() {
 
   return (
     <>
+      <div className="relative grid max-w-fit place-items-center">
+        <span
+          className={`absolute top-1/2 w-80 text-opacity-80 text-dashboard-warning font-medium text-small ${
+            isCharging || batteryRemainingCapacity === 0 ? "" : "hidden"
+          }`}
+        >
+          Not Available when charging or battery is empty
+        </span>
+      </div>
+
       <Slider
         key={isCharging ? "charging" : "not-charging"}
-        className="max-w-sm text-dashboard-white"
-        isDisabled={isCharging}
+        className="max-w-sm text-dashboard-white pt-4"
+        isDisabled={isCharging || batteryRemainingCapacity === 0}
         defaultValue={0}
         showOutline={true}
         color="foreground"

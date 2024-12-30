@@ -16,8 +16,6 @@ import {
 } from "../services/api";
 
 export const useDashboard = (dashboardUuid: string) => {
-  console.log("useDashboard dashboardUuid", dashboardUuid);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
