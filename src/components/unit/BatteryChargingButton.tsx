@@ -53,7 +53,7 @@ function BatteryChargingButton() {
             ? "transform animate-pulseColor border-4 border-green-200"
             : ""
         }`}
-        src="/src/assets/engine-charging.png"
+        src="/assets/engine-charging.png"
         alt={isCharging ? "Charging" : "Not Charging"}
       />
     </button>

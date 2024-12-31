@@ -40,7 +40,7 @@ function ButtonContainer() {
 
         <div className="bg-dashboard-black border border-gray-600 rounded-lg col-start-5 col-end-5 place-content-center">
           <button className="max-w-full max-h-fit pt-1">
-            <img className="rounded-3xl" src="/src/assets/page-button.png" />
+            <img className="rounded-3xl" src="/assets/page-button.png" />
           </button>
         </div>
 
