@@ -39,13 +39,17 @@ export const useIndicators = () => {
       );
 
       if (indicatorIndex !== -1) {
-        newIndicators[indicatorIndex] = {
-          ...newIndicators[indicatorIndex],
-          status,
-          updatedAt: new Date().toISOString(),
-        };
+        const currentIndicator = newIndicators[indicatorIndex];
+        if (currentIndicator.status !== status) {
+          newIndicators[indicatorIndex] = {
+            ...currentIndicator,
+            status,
+            updatedAt: new Date().toISOString(),
+          };
+          return newIndicators;
+        }
       }
-      return newIndicators;
+      return prev;
     });
   };
   return { getIndicatorStatus, saveIndicatorToDb, setIndicatorsState };
