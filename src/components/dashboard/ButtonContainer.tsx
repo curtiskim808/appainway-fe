@@ -1,3 +1,17 @@
+/**
+ * ButtonContainer component renders a grid of buttons and indicators for the vehicle dashboard.
+ *
+ * This component includes:
+ * - A button displaying the current gear ratio using the GearIcon component.
+ * - A button displaying the motor status using the Indicator component.
+ * - A button displaying the battery temperature using the BatteryTemperatureIcon component.
+ * - A button with an image for additional functionality.
+ * - A button for battery charging using the BatteryChargingButton component.
+ *
+ * The component uses Recoil for state management to get the current gear ratio value.
+ *
+ * @returns {JSX.Element} The ButtonContainer component
+ */
 import GearIcon from "../icons/GearIcon";
 import Indicator from "../common/Indicator";
 import BatteryTemperatureIcon from "../icons/BatteryTemperatureIcon";

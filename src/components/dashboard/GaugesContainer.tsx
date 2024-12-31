@@ -1,3 +1,16 @@
+/**
+ * GaugesContainer component renders a container with two gauges.
+ *
+ * This component is responsible for displaying two different types of gauges
+ * within a styled container. The gauges displayed are:
+ * - Power Input Gauge
+ * - Motor RPM Gauge
+ *
+ * The container has a grey background and borders with specific styles.
+ * Each gauge is placed inside a grid layout to ensure proper alignment and spacing.
+ *
+ * @returns {JSX.Element} The GaugesContainer component.
+ */
 import Gauge from "../common/Gauge";
 import { MetricType } from "../../types/dashboard";
 

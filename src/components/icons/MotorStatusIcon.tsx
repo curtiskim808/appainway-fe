@@ -1,3 +1,12 @@
+/**
+ * MotorStatusIcon component renders an SVG icon representing the status of a motor.
+ * The icon consists of a battery-like shape with a lightning bolt in the center.
+ *
+ * @param {IconBaseProps} props - The properties for the icon component.
+ * @param {string} props.color - The color to be used for the icon's stroke and fill.
+ *
+ * @returns {JSX.Element} The rendered MotorStatusIcon component.
+ */
 import { IconBaseProps } from "../../types";
 
 function MotorStatusIcon({ color }: IconBaseProps) {

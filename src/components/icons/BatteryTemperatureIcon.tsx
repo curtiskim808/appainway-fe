@@ -1,3 +1,12 @@
+/**
+ * BatteryTemperatureIcon component renders an SVG icon that combines a battery and a thermometer.
+ * The battery is represented on the left side and the thermometer on the right side.
+ * The color of the icon can be customized through the `color` prop, which defaults to `colorStatus.default`.
+ *
+ * @param {IconBaseProps} props - The properties for the icon component.
+ * @param {string} [props.color=colorStatus.default] - The color to be used for the icon's stroke and fill.
+ * @returns {JSX.Element} The rendered BatteryTemperatureIcon component.
+ */
 import { IconBaseProps } from "../../types";
 import { colorStatus } from "../../config/constants";
 

@@ -1,3 +1,11 @@
+/**
+ * BatteryLowIcon component renders an SVG icon representing a low battery level.
+ *
+ * @param {IconBaseProps} props - The properties for the icon component.
+ * @param {string} props.color - The color to be used for the icon's stroke and fill.
+ *
+ * @returns {JSX.Element} A JSX element containing the SVG representation of a low battery icon.
+ */
 import { IconBaseProps } from "../../types";
 
 function BatteryLowIcon({ color }: IconBaseProps) {

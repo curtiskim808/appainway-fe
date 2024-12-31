@@ -1,3 +1,7 @@
+/**
+ * Custom hook for managing indicator states in a dashboard.
+ * Provides functions to get, update, and save indicator states.
+ */
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { indicatorsState } from "../recoil/atoms";
 import { indicatorStatusSelector } from "../recoil/selectors";

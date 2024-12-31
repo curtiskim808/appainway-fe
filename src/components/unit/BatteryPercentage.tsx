@@ -1,3 +1,13 @@
+/**
+ * BatteryPercentage component displays the current battery percentage of a vehicle,
+ * and manages the state of the low battery indicator based on the battery percentage.
+ *
+ * This component uses Recoil for state management and custom hooks for indicator state updates.
+ * It also displays an indicator for low battery and charging status, and updates the indicator
+ * state in the database when the battery percentage crosses the low battery threshold.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 import {
   batteryInfoValueSelector,
   indicatorObjSelector,

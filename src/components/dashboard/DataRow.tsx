@@ -1,3 +1,18 @@
+/**
+ * DataRow component renders a grid layout with various vehicle dashboard metrics.
+ *
+ * The grid consists of seven columns with the following components:
+ * - GearRatio: Displays the gear ratio of the vehicle.
+ * - BatteryPercentage: Shows the current battery percentage.
+ * - BatteryTemperature: Indicates the battery temperature.
+ * - MotorRPM: Displays the motor RPM (Revolutions Per Minute).
+ * - MotorControllerSlider: A slider to control the motor speed setting.
+ *
+ * Each component is wrapped in a styled div with specific classes for layout and appearance.
+ * The MotorControllerSlider spans three columns and includes a label for motor speed setting.
+ *
+ * @returns {JSX.Element} The DataRow component
+ */
 import MotorControllerSlider from "../common/MotorControllerSlider";
 import BatteryPercentage from "../unit/BatteryPercentage";
 import BatteryTemperature from "../unit/BatteryTemperature";

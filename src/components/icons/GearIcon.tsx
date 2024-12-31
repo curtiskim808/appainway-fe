@@ -1,3 +1,11 @@
+/**
+ * GearIcon component renders an icon of a gear with a letter overlay.
+ *
+ * @param {Object} props - The properties object.
+ * @param {string} props.letter - The letter to be displayed on top of the gear icon.
+ *
+ * @returns {JSX.Element} The rendered GearIcon component.
+ */
 function GearIcon({ letter }: { letter: string }) {
   return (
     <>

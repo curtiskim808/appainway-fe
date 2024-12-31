@@ -1,3 +1,16 @@
+/**
+ * MotorRPM component displays the motor RPM (Revolutions Per Minute) value and an indicator
+ * showing the motor status. It uses Recoil for state management to fetch the motor RPM and
+ * motor speed values.
+ *
+ * The component consists of:
+ * - An Indicator component that shows the motor status based on whether the motor is in use.
+ * - A text display showing the motor RPM value and the unit "RPM".
+ *
+ * The motor is considered "in use" if the motor speed value is greater than 0.
+ *
+ * @return {JSX.Element} The rendered MotorRPM component.
+ */
 import Indicator from "../common/Indicator";
 import { metricValueSelector } from "../../recoil/selectors";
 import { IndicatorType, MetricType } from "../../types/dashboard";

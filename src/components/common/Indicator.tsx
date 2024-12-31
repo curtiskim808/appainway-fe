@@ -1,3 +1,16 @@
+/**
+ * Indicator component that renders different icons based on the type of indicator.
+ * It uses Recoil for state management to get the status of the indicator.
+ * The color of the icon is determined by the status and other props such as `isIndicator`, `isCharging`, and `inUsed`.
+ *
+ * @param {IndicatorProps} props - The properties for the Indicator component.
+ * @param {IndicatorType} props.type - The type of the indicator to be displayed.
+ * @param {boolean} props.isIndicator - Flag to determine if the indicator is active.
+ * @param {boolean} props.isCharging - Flag to determine if the vehicle is charging.
+ * @param {boolean} props.inUsed - Flag to determine if the vehicle is in use.
+ *
+ * @returns {JSX.Element | null} The corresponding icon component based on the indicator type and status, or null if the type is not recognized.
+ */
 import { IndicatorProps } from "../../types";
 import CheckEngineIcon from "../icons/CheckEngineIcon";
 import ParkingBrakeIcon from "../icons/ParkingBrakeIcon";
