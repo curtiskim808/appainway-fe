@@ -43,10 +43,10 @@ https://secret-garden-38447-cfa420a113c0.herokuapp.com/api/v1/api-docs
 2. Set Your Environment Variables
 
 Create a `.env` file in the root directory and add the following environment variables: (refer to .env.example)
-
+(In your local, http://localhost:8080 would be your backend url)
 ```bash
-  VITE_DASHBOARD_APP_API_URL=<your-api-url>/api/v1/dashboards
-  VITE_DASHBOARD_APP_WEBSOCKET_URL=<your-api-url>/api/v1/ws
+  VITE_DASHBOARD_APP_API_URL=<backend-api-url>/api/v1/dashboards
+  VITE_DASHBOARD_APP_WEBSOCKET_URL=<backend-api-url>/api/v1/ws
 ```
 
 3. build and run for dev
@@ -55,9 +55,11 @@ Create a `.env` file in the root directory and add the following environment var
   npm run dev
 ```
 
+Visit your dev
+
 ![alt text](image.png)
 
-4. Or run the application using Docker
+4. (Optional) run the application using Docker
 
 You can also reference the Dockerfile to run the application. Build and run the Docker container with the following commands:
 
