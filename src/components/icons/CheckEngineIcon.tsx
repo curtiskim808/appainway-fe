@@ -1,4 +1,11 @@
-import React from "react";
+/**
+ * CheckEngineIcon component renders an SVG icon representing a check engine light.
+ * The icon is rotated 180 degrees and its color can be customized via props.
+ *
+ * @param {IconBaseProps} props - The properties for the icon component.
+ * @param {string} props.color - The color to be applied to the stroke of the SVG path.
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 import { IconBaseProps } from "../../types";
 
 function CheckEngineIcon({ color }: IconBaseProps) {

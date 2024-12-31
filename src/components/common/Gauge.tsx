@@ -1,4 +1,14 @@
-import React from "react";
+/**
+ * Gauge component that displays a gauge with a needle indicating a value.
+ * The gauge is configured based on the `type` prop, which determines the
+ * gauge's range, unit, steps, and other visual properties.
+ *
+ * @param {GaugeProps} props - The properties for the Gauge component.
+ * @param {string} props.type - The type of the gauge, used to fetch the appropriate configuration and value.
+ *
+ * @returns {JSX.Element} The rendered Gauge component.
+ */
+
 import { GaugeProps, GAUGE_CONFIGS } from "../../types";
 import useMetrics from "../../hooks/useMetrics";
 import CountUp from "react-countup";
@@ -30,7 +40,6 @@ function Gauge({ type }: GaugeProps) {
   };
 
   const rotation = getRotation(value);
-  console.log(type, " ", "value: ", value, "rotation: ", rotation);
 
   return (
     <div className="w-64 h-64 relative">

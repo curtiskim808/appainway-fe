@@ -1,3 +1,7 @@
+/**
+ * Custom hook to fetch and manage dashboard data.
+ * It fetches dashboard, indicators, metrics, and battery info data.
+ */
 import { useState, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 

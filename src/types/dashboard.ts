@@ -1,4 +1,3 @@
-// src/types/dashboard.ts
 export enum IndicatorType {
   BATTERY_CHARGING = "BATTERY_CHARGING",
   BATTERY_LOW = "BATTERY_LOW",

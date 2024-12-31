@@ -1,3 +1,7 @@
+/**
+ * Custom hook for managing indicator states in a dashboard.
+ * Provides functions to get, update, and save indicator states.
+ */
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { indicatorsState } from "../recoil/atoms";
 import { indicatorStatusSelector } from "../recoil/selectors";
@@ -22,7 +26,6 @@ export const useIndicators = () => {
     }
   };
   const setIndicatorsState = (
-    dashboardUuid: string,
     id: number,
     type: IndicatorType,
     status: boolean
@@ -30,7 +33,7 @@ export const useIndicators = () => {
     setIndicators((prev) => {
       const newIndicators = [...prev];
       const indicatorIndex = newIndicators.findIndex(
-        (indicator) => indicator.type === type
+        (indicator) => indicator.type === type && indicator.id === id
       );
 
       if (indicatorIndex !== -1) {

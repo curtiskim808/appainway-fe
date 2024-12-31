@@ -1,4 +1,12 @@
-import React from "react";
+/**
+ * ParkingBrake component renders an SVG icon representing a parking brake.
+ * The icon consists of two outer arcs, inner circles, and a centered "P" text.
+ * The color of the icon can be customized via the `color` prop.
+ *
+ * @param {IconBaseProps} props - The properties for the ParkingBrake component.
+ * @param {string} props.color - The color to be applied to the SVG elements.
+ * @returns {JSX.Element} The rendered ParkingBrake icon.
+ */
 import { IconBaseProps } from "../../types";
 
 function ParkingBrake({ color }: IconBaseProps) {

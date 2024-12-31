@@ -1,4 +1,12 @@
-import React from "react";
+/**
+ * IndicatorsContainer component renders a grid of indicator components.
+ * Each indicator represents a different type of vehicle status such as
+ * parking brake, engine status, motor status, and battery low status.
+ *
+ * The component uses Tailwind CSS classes for styling and layout.
+ *
+ * @returns {JSX.Element} The IndicatorsContainer component.
+ */
 import Indicator from "../common/Indicator";
 import { IndicatorType } from "../../types/dashboard";
 

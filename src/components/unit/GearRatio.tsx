@@ -1,4 +1,12 @@
-import React from "react";
+/**
+ * GearRatio component displays the current gear ratio of the vehicle.
+ * It uses Recoil for state management to get the gear ratio value from the global state.
+ * The component maps the numeric gear ratio value to a corresponding gear letter using the `gearMap`.
+ * It then displays the gear letter inside a GearIcon component and also shows the gear letter in a styled div.
+ *
+ * @return {JSX.Element} The rendered GearRatio component.
+ * )
+ */
 import { metricValueSelector } from "../../recoil/selectors";
 import { MetricType } from "../../types/dashboard";
 import { useRecoilValue } from "recoil";

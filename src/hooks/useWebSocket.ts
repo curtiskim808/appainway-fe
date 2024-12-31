@@ -1,10 +1,13 @@
+/**
+ * Custom hook to manage WebSocket connections for a vehicle dashboard.
+ * Subscribes to various topics and handles incoming data.
+ */
 import { useEffect, useRef, useState } from "react";
 import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { BatteryInfo, Indicator, Metric } from "../types/dashboard";
 
 const WEB_SOCKET_URL = import.meta.env.VITE_DASHBOARD_APP_WEBSOCKET_URL;
-console.log("WEB_SOCKET_URL: ", WEB_SOCKET_URL);
 const useWebSocket = (
   dashboardUuid: string,
   onBatteryTemperature: (data: BatteryInfo) => void,
@@ -22,7 +25,6 @@ const useWebSocket = (
       reconnectDelay: 5000,
       onConnect: () => {
         setConnectionStatus("CONNECTED");
-        console.log("WebSocket connected");
 
         // Subscribe to topics...
         if (stompClient.current) {
@@ -69,11 +71,11 @@ const useWebSocket = (
       },
       onDisconnect: () => {
         setConnectionStatus("DISCONNECTED");
-        console.log("WebSocket disconnected");
+        console.info("WebSocket disconnected");
       },
       onWebSocketClose: () => {
         setConnectionStatus("DISCONNECTED");
-        console.log("WebSocket closed");
+        console.info("WebSocket closed");
       },
     });
 

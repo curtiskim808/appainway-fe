@@ -1,3 +1,7 @@
+/**
+ * Recoil atoms for managing the state of the vehicle dashboard.
+ * Includes dashboard, indicators, metrics, and battery information.
+ */
 import { atom } from "recoil";
 import { Dashboard, Indicator, Metric, BatteryInfo } from "../types/dashboard";
 

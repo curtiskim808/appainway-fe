@@ -8,7 +8,6 @@ export interface GearIconProps {
   letter: "N" | "D" | "P" | "R" | "1" | "2" | "3" | "4" | "5";
 }
 
-// Indicators State management
 export interface Indicators {
   "parking-brake": boolean;
   "battery-low": boolean;
@@ -23,7 +22,7 @@ export interface IndicatorProps {
   isCharging?: boolean;
   inUsed?: boolean;
 }
-// Gauge State management
+
 export interface Gauge {
   POWER_INPUT: number;
   MOTOR_RPM: number;
@@ -65,7 +64,6 @@ export interface GaugeProps {
   type: GaugeType;
 }
 
-// Gearr Ratio State management
 export interface GearRatio {
   gearRep: string;
   ratio: number;

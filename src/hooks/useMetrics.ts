@@ -1,3 +1,7 @@
+/**
+ * Custom hook to manage metrics state and save metrics to the database.
+ * Provides functions to get metric value, save metric to DB, and update metrics state.
+ */
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { metricValueSelector } from "../recoil/selectors";
 import { MetricType } from "../types/dashboard";
@@ -23,7 +27,6 @@ function useMetrics() {
     }
   };
   const setMetricsState = (
-    dashboardUuid: string,
     id: number,
     type: MetricType,
     value: number,

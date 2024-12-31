@@ -1,7 +1,10 @@
+/**
+ * Custom hook to manage battery information state using Recoil.
+ * Provides functions to get and set battery information.
+ */
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { batteryInfoValueSelector } from "../recoil/selectors";
 import { BatteryInfoType } from "../types/dashboard";
-
 import { batteryInfoState } from "../recoil/atoms";
 
 function useBatteryInfo() {
@@ -9,7 +12,6 @@ function useBatteryInfo() {
   const getBatteryInfoValue = useRecoilValue(batteryInfoValueSelector);
 
   const setBatteryInfoState = (
-    dashboardUuid: string,
     id: number,
     type: BatteryInfoType,
     value: number,

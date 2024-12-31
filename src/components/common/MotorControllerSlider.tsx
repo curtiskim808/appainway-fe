@@ -1,4 +1,17 @@
-import React, { useState, useEffect } from "react";
+/**
+ * MotorControllerSlider is a React functional component that renders a slider
+ * to control the motor speed of a vehicle. The slider is disabled when the battery
+ * is charging or when the battery's remaining capacity is zero. The component
+ * uses Recoil for state management and hooks for side effects.
+ *
+ * The component performs the following:
+ * - Initializes the slider value to 0.
+ * - Disables the slider and shows a warning message when the battery is charging or empty.
+ * - Saves the motor speed metric to the database and updates the metrics state whenever the slider value changes.
+ *
+ * @returns {JSX.Element} The MotorControllerSlider component
+ */
+import { useState, useEffect } from "react";
 import { Slider } from "@nextui-org/react";
 import useMetrics from "../../hooks/useMetrics";
 import {
@@ -46,7 +59,6 @@ function MotorControllerSlider() {
       motorSpeedMetric.unit
     );
     setMetricsState(
-      dashboardUuid,
       motorSpeedMetric.id,
       MetricType.MOTOR_SPEED,
       value,

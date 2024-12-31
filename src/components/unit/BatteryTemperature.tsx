@@ -1,4 +1,14 @@
-import React from "react";
+/**
+ * BatteryTemperature component displays the current battery temperature
+ * along with an icon indicating the status of the battery.
+ *
+ * The component uses Recoil state management to fetch the battery temperature,
+ * motor speed, and battery charging status. It then determines the color of the
+ * icon and the text animation based on whether the motor is in use or the battery
+ * is charging.
+ *
+ * @returns {JSX.Element} The rendered component displaying the battery temperature.
+ */
 import BatteryTemperatureIcon from "../icons/BatteryTemperatureIcon";
 import { colorStatus } from "../../config/constants";
 
