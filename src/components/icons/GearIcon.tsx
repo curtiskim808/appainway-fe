@@ -11,7 +11,7 @@ function GearIcon({ letter }: { letter: string }) {
     <>
       <div className="flex items-center justify-center relative pt-1">
         <img
-          src="/src/assets/gearIcon.png"
+          src="/assets/gearIcon.png"
           alt=""
           className="h-auto max-w-full w-20"
           style={{
