@@ -79,6 +79,7 @@ function MotorControllerSlider() {
       </div>
 
       <Slider
+        aria-labelledby="motor-speed-slider"
         key={isCharging ? "charging" : "not-charging"}
         className="max-w-sm text-dashboard-white pt-4"
         isDisabled={isCharging || batteryRemainingCapacity === 0}

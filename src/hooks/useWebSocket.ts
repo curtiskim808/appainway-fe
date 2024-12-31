@@ -21,7 +21,6 @@ const useWebSocket = (
   useEffect(() => {
     stompClient.current = new Client({
       webSocketFactory: () => new SockJS(WEB_SOCKET_URL),
-      debug: (str) => console.log(str),
       reconnectDelay: 5000,
       onConnect: () => {
         setConnectionStatus("CONNECTED");
@@ -71,11 +70,9 @@ const useWebSocket = (
       },
       onDisconnect: () => {
         setConnectionStatus("DISCONNECTED");
-        console.info("WebSocket disconnected");
       },
       onWebSocketClose: () => {
         setConnectionStatus("DISCONNECTED");
-        console.info("WebSocket closed");
       },
     });
 
