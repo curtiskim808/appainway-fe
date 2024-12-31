@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Slider } from "@nextui-org/react";
 import useMetrics from "../../hooks/useMetrics";
 import {
@@ -46,7 +46,6 @@ function MotorControllerSlider() {
       motorSpeedMetric.unit
     );
     setMetricsState(
-      dashboardUuid,
       motorSpeedMetric.id,
       MetricType.MOTOR_SPEED,
       value,

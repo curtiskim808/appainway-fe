@@ -23,7 +23,6 @@ function useMetrics() {
     }
   };
   const setMetricsState = (
-    dashboardUuid: string,
     id: number,
     type: MetricType,
     value: number,

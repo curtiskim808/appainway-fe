@@ -1,4 +1,3 @@
-import React from "react";
 import Gauge from "../common/Gauge";
 import { MetricType } from "../../types/dashboard";
 

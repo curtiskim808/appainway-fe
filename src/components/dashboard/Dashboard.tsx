@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useCallback } from "react";
+import { Suspense, lazy, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useDashboard } from "../../hooks/useDashboard";
 import useWebSocket from "../../hooks/useWebSocket";
@@ -23,40 +23,22 @@ function Dashboard() {
 
   const handleBatteryTemperature = useCallback((data: BatteryInfo) => {
     console.log("handleBatteryTemperature data: ", data);
-    setBatteryInfoState(
-      data.dashboardUuid,
-      data.id,
-      data.type,
-      data.value,
-      data.unit
-    );
+    setBatteryInfoState(data.id, data.type, data.value, data.unit);
   }, []);
 
   const handleBatteryCapacity = useCallback((data: BatteryInfo) => {
     console.log("handleBatteryCapacity data: ", data);
-    setBatteryInfoState(
-      data.dashboardUuid,
-      data.id,
-      data.type,
-      data.value,
-      data.unit
-    );
+    setBatteryInfoState(data.id, data.type, data.value, data.unit);
   }, []);
 
   const handleMetrics = useCallback((data: Metric) => {
     console.log("handleMetrics data: ", data);
-    setMetricsState(
-      data.dashboardUuid,
-      data.id,
-      data.type,
-      data.value,
-      data.unit
-    );
+    setMetricsState(data.id, data.type, data.value, data.unit);
   }, []);
 
   const handleIndicators = useCallback((data: Indicator) => {
     console.log("handleIndicators data: ", data);
-    setIndicatorsState(data.dashboardUuid, data.id, data.type, data.status);
+    setIndicatorsState(data.id, data.type, data.status);
   }, []);
 
   useWebSocket(

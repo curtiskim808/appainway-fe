@@ -1,4 +1,3 @@
-import React from "react";
 import {
   batteryInfoValueSelector,
   indicatorObjSelector,
@@ -37,7 +36,6 @@ function BatteryPercentage() {
       !indicatorObj.status
     );
     setIndicatorsState(
-      indicatorObj.dashboardUuid,
       indicatorObj.id,
       IndicatorType.BATTERY_LOW,
       !indicatorObj.status
@@ -53,7 +51,6 @@ function BatteryPercentage() {
       !indicatorObj.status
     );
     setIndicatorsState(
-      indicatorObj.dashboardUuid,
       indicatorObj.id,
       IndicatorType.BATTERY_LOW,
       !indicatorObj.status

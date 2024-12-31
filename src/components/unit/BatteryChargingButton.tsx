@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { indicatorObjSelector } from "../../recoil/selectors";
 import { useRecoilValue } from "recoil";
 import { IndicatorType } from "../../types/dashboard";
@@ -22,7 +22,6 @@ function BatteryChargingButton() {
       !isCharging
     );
     setIndicatorsState(
-      batteryChargingIndicator.dashboardUuid,
       batteryChargingIndicator.id,
       IndicatorType.BATTERY_CHARGING,
       !isCharging

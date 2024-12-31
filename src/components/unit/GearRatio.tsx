@@ -1,4 +1,3 @@
-import React from "react";
 import { metricValueSelector } from "../../recoil/selectors";
 import { MetricType } from "../../types/dashboard";
 import { useRecoilValue } from "recoil";

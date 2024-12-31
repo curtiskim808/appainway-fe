@@ -1,4 +1,3 @@
-import React from "react";
 import Indicator from "../common/Indicator";
 import { metricValueSelector } from "../../recoil/selectors";
 import { IndicatorType, MetricType } from "../../types/dashboard";

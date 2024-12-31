@@ -9,7 +9,6 @@ function useBatteryInfo() {
   const getBatteryInfoValue = useRecoilValue(batteryInfoValueSelector);
 
   const setBatteryInfoState = (
-    dashboardUuid: string,
     id: number,
     type: BatteryInfoType,
     value: number,

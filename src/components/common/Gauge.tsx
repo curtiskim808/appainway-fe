@@ -1,4 +1,3 @@
-import React from "react";
 import { GaugeProps, GAUGE_CONFIGS } from "../../types";
 import useMetrics from "../../hooks/useMetrics";
 import CountUp from "react-countup";

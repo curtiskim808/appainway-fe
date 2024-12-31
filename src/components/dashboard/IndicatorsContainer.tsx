@@ -1,4 +1,3 @@
-import React from "react";
 import Indicator from "../common/Indicator";
 import { IndicatorType } from "../../types/dashboard";
 

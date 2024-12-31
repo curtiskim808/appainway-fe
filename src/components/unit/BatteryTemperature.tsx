@@ -1,4 +1,3 @@
-import React from "react";
 import BatteryTemperatureIcon from "../icons/BatteryTemperatureIcon";
 import { colorStatus } from "../../config/constants";
 

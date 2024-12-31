@@ -1,4 +1,3 @@
-import React from "react";
 import MotorControllerSlider from "../common/MotorControllerSlider";
 import BatteryPercentage from "../unit/BatteryPercentage";
 import BatteryTemperature from "../unit/BatteryTemperature";

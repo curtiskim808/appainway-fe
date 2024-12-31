@@ -1,4 +1,3 @@
-import React from "react";
 import GearIcon from "../icons/GearIcon";
 import Indicator from "../common/Indicator";
 import BatteryTemperatureIcon from "../icons/BatteryTemperatureIcon";

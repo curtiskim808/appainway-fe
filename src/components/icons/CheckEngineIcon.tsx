@@ -1,4 +1,3 @@
-import React from "react";
 import { IconBaseProps } from "../../types";
 
 function CheckEngineIcon({ color }: IconBaseProps) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { IndicatorProps } from "../../types";
 import CheckEngineIcon from "../icons/CheckEngineIcon";
 import ParkingBrakeIcon from "../icons/ParkingBrakeIcon";

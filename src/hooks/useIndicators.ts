@@ -22,7 +22,6 @@ export const useIndicators = () => {
     }
   };
   const setIndicatorsState = (
-    dashboardUuid: string,
     id: number,
     type: IndicatorType,
     status: boolean
@@ -30,7 +29,7 @@ export const useIndicators = () => {
     setIndicators((prev) => {
       const newIndicators = [...prev];
       const indicatorIndex = newIndicators.findIndex(
-        (indicator) => indicator.type === type
+        (indicator) => indicator.type === type && indicator.id === id
       );
 
       if (indicatorIndex !== -1) {
