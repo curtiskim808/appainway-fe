@@ -8,6 +8,7 @@
  *
  * @returns {JSX.Element} The rendered component.
  */
+import { useEffect } from "react";
 import {
   batteryInfoValueSelector,
   indicatorObjSelector,
@@ -38,34 +39,32 @@ function BatteryPercentage() {
   const inUsed = moterSpeed > 0;
 
   const { saveIndicatorToDb, setIndicatorsState } = useIndicators();
-  if (batteryPercentageValue <= LOW_BATTERY_THRESHOLD && !indicatorObj.status) {
-    saveIndicatorToDb(
-      indicatorObj.dashboardUuid,
-      indicatorObj.id,
-      IndicatorType.BATTERY_LOW,
-      !indicatorObj.status
-    );
-    setIndicatorsState(
-      indicatorObj.id,
-      IndicatorType.BATTERY_LOW,
-      !indicatorObj.status
-    );
-  } else if (
-    batteryPercentageValue > LOW_BATTERY_THRESHOLD &&
-    indicatorObj.status
-  ) {
-    saveIndicatorToDb(
-      indicatorObj.dashboardUuid,
-      indicatorObj.id,
-      IndicatorType.BATTERY_LOW,
-      !indicatorObj.status
-    );
-    setIndicatorsState(
-      indicatorObj.id,
-      IndicatorType.BATTERY_LOW,
-      !indicatorObj.status
-    );
-  }
+
+  useEffect(() => {
+    const shouldSetIndicator =
+      (batteryPercentageValue <= LOW_BATTERY_THRESHOLD &&
+        !indicatorObj.status) ||
+      (batteryPercentageValue > LOW_BATTERY_THRESHOLD && indicatorObj.status);
+
+    if (shouldSetIndicator) {
+      saveIndicatorToDb(
+        indicatorObj.dashboardUuid,
+        indicatorObj.id,
+        IndicatorType.BATTERY_LOW,
+        !indicatorObj.status
+      );
+      setIndicatorsState(
+        indicatorObj.id,
+        IndicatorType.BATTERY_LOW,
+        !indicatorObj.status
+      );
+    }
+  }, [
+    batteryPercentageValue,
+    indicatorObj,
+    saveIndicatorToDb,
+    setIndicatorsState,
+  ]);
 
   return (
     <>
