@@ -20,7 +20,7 @@ function useMetrics() {
     unit: string
   ) => {
     try {
-      if (dashboardUuid && id && type && value && unit) {
+      if (dashboardUuid && id) {
         await putMetric(dashboardUuid, id, type, value, unit);
       }
     } catch (error) {

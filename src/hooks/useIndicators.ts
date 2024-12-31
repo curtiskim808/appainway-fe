@@ -19,7 +19,7 @@ export const useIndicators = () => {
     status: boolean
   ) => {
     try {
-      if (dashboardUuid && id && type && status) {
+      if (dashboardUuid && id) {
         await putIndicator(dashboardUuid, id, type, status);
       }
     } catch (error) {
