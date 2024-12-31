@@ -19,7 +19,9 @@ export const useIndicators = () => {
     status: boolean
   ) => {
     try {
-      putIndicator(dashboardUuid, id, type, status);
+      if (dashboardUuid && id && type && status) {
+        await putIndicator(dashboardUuid, id, type, status);
+      }
     } catch (error) {
       console.error("Error updating indicator:", error);
       throw error;
