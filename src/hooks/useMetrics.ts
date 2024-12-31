@@ -20,7 +20,9 @@ function useMetrics() {
     unit: string
   ) => {
     try {
-      putMetric(dashboardUuid, id, type, value, unit);
+      if (dashboardUuid && id && type && value && unit) {
+        await putMetric(dashboardUuid, id, type, value, unit);
+      }
     } catch (error) {
       console.error("Error saving metric:", error);
       throw error;
