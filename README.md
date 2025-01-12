@@ -31,6 +31,12 @@ https://secret-garden-38447-cfa420a113c0.herokuapp.com/api/v1/api-docs
 - **Electric Charging Button**: Users can press the electric charging button to initiate charging.
 
 ### Local Dev Setup Instructions:
+#### **Run the application using Docker
+
+Check this repository: https://github.com/curtiskim808/appianway-platform
+This setup provides a simple development environment using Docker containers for both frontend and backend applications. If you are not familiar with Java or don't have a Java environment installed, this setup will help you get started quickly without additional configurations.
+
+#### Or, Run the application on your local machine
 
 1. Install dependencies:
 
@@ -59,11 +65,5 @@ Visit your dev
 
 ![alt text](image.png)
 
-4. (Optional) run the application using Docker
 
-You can also reference the Dockerfile to run the application. Build and run the Docker container with the following commands:
 
-```bash
-  docker build -t vehicle-dashboard .
-  docker run -p 5173:5173 vehicle-dashboard
-```
